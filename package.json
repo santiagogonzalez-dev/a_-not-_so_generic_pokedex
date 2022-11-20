@@ -1,0 +1,13 @@
+{
+  "name": "a_generic_pokedex",
+  "version": "0.0.1",
+  "description": "A simple page that consumes the PokéAPI.",
+  "main": "index.js",
+  "repository": "git@github.com:santigo-zero/a_generic_pokedex.git",
+  "author": "Santiago Gonzalez <santiagogonzalezbogado@gmail.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "dependencies": {
+    "prettier": "^2.7.1"
+  }
+}
