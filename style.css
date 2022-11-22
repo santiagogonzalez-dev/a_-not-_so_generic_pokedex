@@ -22,6 +22,7 @@ main {
   /* max-width: 30rem; */
   border-color: red;
   border-style: solid;
+  margin-inline: 1rem;
 }
 
 h1 {
@@ -32,6 +33,7 @@ h1 {
 }
 
 #pokemon-list {
+  /* Reset and delete defaults in list */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -45,9 +47,9 @@ h1 {
   /* max-width: 50rem; */
 }
 
-.list-container {
-  margin-inline: 1rem;
-}
+/* .list-container { */
+/*   margin-inline: 1rem; */
+/* } */
 
 .card {
   /* border-color: blue; */
@@ -56,4 +58,6 @@ h1 {
   color: black;
   border-radius: 30px;
   padding: 1rem;
+
+  text-align: center;
 }
