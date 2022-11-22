@@ -20,16 +20,18 @@ main {
   flex-direction: column;
 
   /* max-width: 30rem; */
-  border-color: red;
-  border-style: solid;
+  /* border-color: red; */
+  /* border-style: solid; */
   margin-inline: 1rem;
 }
 
 h1 {
-  border-color: orange;
-  border-style: solid;
+  /* border-color: orange; */
+  /* border-style: solid; */
   text-align: center;
   font-weight: 600;
+  font-size: 3rem;
+  padding: 2rem;
 }
 
 #pokemon-list {
@@ -60,4 +62,5 @@ h1 {
   padding: 1rem;
 
   text-align: center;
+  box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.3)
 }
