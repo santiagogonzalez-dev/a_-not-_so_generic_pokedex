@@ -26,8 +26,8 @@ main {
 }
 
 h1 {
-  border-color: orange;
-  border-style: solid;
+  /* border-color: orange; */
+  /* border-style: solid; */
   text-align: center;
   font-weight: 600;
   font-size: 3rem;
