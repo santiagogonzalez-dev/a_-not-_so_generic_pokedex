@@ -1,51 +1,27 @@
-const pokedex = document.querySelector("#pokemon-list");
+const ulPokemons = document.querySelector("#pokemon-list");
 
-var key = "myPokemonList";
-
-async function fetchPokemons() {
-  console.log(`Fetching the pokemon list and saving it locally`);
-  return await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-    .then((response) => response.json())
-    .then((data) => {
-      sessionStorage.setItem(key, JSON.stringify(data));
-      return data;
-    })
-    .catch(function (err) {
-      console.log(`Error: ${err}`);
-    });
-}
-
-// function insertOnList(data) {
-
-// }
-
-function getPokemons(key: string) {
-  let getPokemonList: string | null = sessionStorage.getItem(key);
-  if (getPokemonList !== null) {
-    // fetchPokemons();
-    console.log("It's not null");
-    const pokemon = JSON.parse(getPokemonList);
-    // console.log(pokemon.results[0].name);
-    // console.log(pokemon.results[0]);
-    fetch(pokemon.results[0].url)
+function fetchAndWritePokemons() {
+  for (var i = 1; i < 152; i++) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
       .then((response) => response.json())
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      })
       .then((data) => {
-        console.log(data.name);
-
-        pokedex!.insertAdjacentHTML(
+        console.log(data);
+        ulPokemons?.insertAdjacentHTML(
           "beforeend",
           `
-        <li class="card">
-            <img class="card-image" src="${data.sprites.front_default}"/>
-            <h2 class="card-title">${data.id}. ${data.name}</h2>
-            <p class="card-subtitle">Type: ${data.type}</p>
-        </li>
-      `
+          <li class="card">
+              <h2 class="card-title">${data.id}. ${data.name}</h2>
+              <img class="card-image" src="${data.sprites.front_default}"/>
+          </li>
+        `
         );
       });
   }
 }
 
 window.onload = function () {
-  getPokemons(key);
+  fetchAndWritePokemons();
 };

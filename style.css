@@ -26,8 +26,8 @@ main {
 }
 
 h1 {
-  /* border-color: orange; */
-  /* border-style: solid; */
+  border-color: orange;
+  border-style: solid;
   text-align: center;
   font-weight: 600;
   font-size: 3rem;
@@ -63,4 +63,20 @@ h1 {
 
   text-align: center;
   box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 67em) {
+  h1 {
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
 }
