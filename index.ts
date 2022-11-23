@@ -1,24 +1,26 @@
-const pokedex = document.querySelector('#pokemon-list')
+const pokedex = document.querySelector("#pokemon-list");
 
-var key = 'myPokemonList'
+var key = "myPokemonList";
 
-function fetchAndSavePokemons(key: string){
-  console.log(`Fetching the pokemon list and saving it locally`)
-  fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
+function fetchPokemons() {
+  console.log(`Fetching the pokemon list and saving it locally`);
+  fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      return data;
+    });
 }
 
 function getPokemons(key: string): JSON {
-  let getPokemonList: string | null = sessionStorage.getItem(key)
+  let getPokemonList: string | null = sessionStorage.getItem(key);
   if (getPokemonList !== null) {
-    return JSON.parse(getPokemonList)
+    return JSON.parse(getPokemonList);
   } else {
-    return fetchAndSavePokemons(key)
+    return fetchPokemons(key);
   }
 }
 
 window.onload = function () {
-  let pokemon_list: JSON = getPokemons(key)
-  console.log(pokemon_list)
-}
+  let pokemon_list: JSON = getPokemons(key);
+  console.log(pokemon_list);
+};
