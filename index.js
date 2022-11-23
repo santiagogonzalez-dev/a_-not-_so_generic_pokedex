@@ -7,16 +7,15 @@ function fetchAPI(key) {
     if (sessionStorage.getItem(key) !== null) {
         // If the Pokémon list is present in sessionStorage we do nothing
         console.log("Found the pokemon list in the browser storage");
-        return sessionStorage.getItem(key);
     }
     // If the Pokémon list is not present in sessionStorage we fetch it
     console.log("Fetching the pokemon list and saving it locally");
-    return fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
         .then(function (response) { return response.json(); })
         .then(function (json) {
         sessionStorage.setItem(key, JSON.stringify(json));
-        return sessionStorage.getItem(key);
     });
+    return sessionStorage.getItem(key);
 }
 window.onload = function () {
     var pokemon_list = fetchAPI(key);
